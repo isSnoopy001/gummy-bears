@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fafaf7">
+<meta name="description" content="A handful of soft, translucent gummy bears. Grab, stretch, squish, and let go.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='20' fill='%23fafaf7'/%3E%3Cpath fill='%23ed6470' d='M24 34a12 12 0 1 1 12-17h8a12 12 0 1 1 12 17v28c0 14-32 14-32 0z'/%3E%3C/svg%3E">
+<title>Gummy Bears — A little give.</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{background:#fafaf7;color:#1b1e18;font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}button,input{font:inherit}button{touch-action:manipulation}#world{position:fixed;inset:0;width:100%;height:100%;display:block;touch-action:none;outline:none;cursor:none}.editorial{position:absolute;top:5.4vh;left:3.6vw;pointer-events:none;z-index:2}.eyebrow,.micro{font-size:10px;font-weight:500;letter-spacing:2.6px;text-transform:uppercase}.eyebrow{display:flex;align-items:center;gap:14px;color:#8d9187}.eyebrow:before{content:"";width:25px;height:1px;background:#bfc3b7}h1{font-family:"Bodoni MT","Didot","Times New Roman",serif;font-weight:400;font-style:italic;letter-spacing:-.085em;font-size:clamp(100px,10.9vw,184px);line-height:.76;margin:33px 0 36px -7px}h1 span{display:block}h1 span+span{margin-top:8px}.intro{font-size:13px;line-height:1.8;color:#767b70;max-width:255px;margin:0}.instructions{font-size:8px;letter-spacing:1.7px;color:#969b8f;line-height:2;margin-top:19px}.flavours{position:absolute;right:3.3vw;top:5.5vh;width:222px;background:rgba(255,255,253,.76);border:1px solid rgba(205,210,198,.6);border-radius:17px;padding:19px 19px 11px;box-shadow:0 5px 6px #24341403,0 12px 35px #24341408;backdrop-filter:blur(14px);z-index:3}.card-head{display:flex;justify-content:space-between;color:#a0a598;font-size:9px;letter-spacing:2px;padding-bottom:11px}.flavour{display:flex;align-items:center;gap:11px;padding:10px 0;border-bottom:1px solid #e5e8df;font-size:12px;color:#4c5146}.flavour:last-child{border:0}.flavour small{margin-left:auto;color:#a8ad9f;font-family:monospace;font-size:9px}.swatch{width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 32% 25%,#fff9 0,#fff0 41%),var(--c);box-shadow:inset -2px -2px 3px #0002,0 2px 4px #0001;border:1px solid #00000009}.footer{position:absolute;bottom:4.3vh;left:3.6vw;right:3.3vw;border-top:1px solid #d8dcd0;padding-top:20px;display:flex;align-items:center;gap:35px;z-index:3}.wobble{width:225px}.label-line{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;color:#9ba091;font-size:9px;letter-spacing:2px}.label-line output{font-family:monospace;font-size:9px;letter-spacing:0;color:#777e6c}input[type=range]{display:block;-webkit-appearance:none;appearance:none;width:100%;height:2px;margin:17px 0 6px;background:linear-gradient(to right,#626c52 0 58%,#d9ddd2 58% 100%);outline:none;cursor:ew-resize}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border:1px solid #c2c8b7;border-radius:50%;background:#fffffd;box-shadow:0 1px 4px #32452020}input[type=range]::-moz-range-thumb{width:18px;height:18px;border:1px solid #c2c8b7;border-radius:50%;background:#fffffd}input:focus-visible,button:focus-visible{outline:2px solid #879b70;outline-offset:6px}.footer-note{font-family:"Times New Roman",serif;font-style:italic;color:#a2a795;font-size:14px;flex:1;padding-left:16px}.readout{min-width:77px}.readout .micro{font-size:8px;letter-spacing:2px;color:#9ba091;display:block;margin-bottom:7px}.value{font-family:"Courier New",monospace;font-size:23px;letter-spacing:-1.4px;line-height:1}.unit{font-size:10px;letter-spacing:0;color:#a8ad9e;margin-left:3px}#pour{border:0;color:#f9faf5;background:#23271e;border-radius:40px;padding:16px 21px 16px 23px;min-width:178px;display:flex;justify-content:space-between;align-items:center;gap:22px;font-size:11px;cursor:pointer;box-shadow:0 3px 6px #25301713;transition:background .2s,transform .2s}#pour:hover{background:#454e38;transform:translateY(-2px)}#pour:active{transform:translateY(1px)}#pour:disabled{opacity:.5;cursor:wait}#pour .plus{font-size:21px;font-weight:300;line-height:.8}#cursor{position:fixed;left:0;top:0;width:27px;height:27px;margin:-13.5px;border:1px solid #31462c65;border-radius:50%;pointer-events:none;z-index:8;opacity:0;transition:width .16s,height .16s,margin .16s,background .16s;display:flex;align-items:center;justify-content:center}#cursor:after{content:"";width:3px;height:3px;background:#3b5737aa;border-radius:50%;opacity:0;transition:opacity .2s}#cursor.over:after{opacity:1}#cursor.grabbing{width:43px;height:43px;margin:-21.5px;background:#66845b0b;border-color:#31462c88}#hint{position:absolute;left:54%;top:80%;transform:translateX(-50%);font-family:"Times New Roman",serif;font-style:italic;font-size:16px;color:#89917d;pointer-events:none;transition:opacity .8s;white-space:nowrap}#hint:before{content:"↗";margin-right:9px;font-family:Arial;font-size:19px}#status{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:11px;color:#89917d;letter-spacing:2px;transition:opacity .5s;z-index:5;pointer-events:none}#error{display:none;position:fixed;left:50%;top:60%;transform:translate(-50%,-50%);max-width:400px;background:#fffffc;border:1px solid #ddd;padding:24px;border-radius:16px;font-size:13px;line-height:1.8;z-index:9}.edition{position:absolute;bottom:calc(4.3vh + 100px);right:3.4vw;writing-mode:vertical-rl;font-size:8px;letter-spacing:2px;color:#aeb4a3;pointer-events:none}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(min-width:1800px){.flavours{width:260px;padding:23px}.flavour{font-size:14px;padding:12px 0}.intro{font-size:15px;max-width:285px}}
+@media(max-width:1050px){h1{font-size:clamp(90px,12vw,145px)}.flavours{width:180px;padding:16px 15px 8px}.intro{font-size:12px;max-width:205px}.instructions{max-width:190px}.footer{gap:22px}.wobble{width:180px}.footer-note{display:none}}
+@media(max-width:650px){.editorial{top:30px;left:24px}.eyebrow{font-size:7px;letter-spacing:1.6px;gap:8px}.eyebrow:before{width:16px}h1{font-size:74px;margin:25px 0 24px -4px;line-height:.76}.intro{font-size:11px;line-height:1.65;max-width:170px}.instructions{display:none}.flavours{right:20px;top:31px;width:123px;padding:12px 12px 6px;border-radius:13px}.card-head{font-size:7px;letter-spacing:1px;padding-bottom:6px}.flavour{font-size:9px;gap:7px;padding:8px 0}.flavour small{font-size:7px}.swatch{width:10px;height:10px;flex-shrink:0}.footer{bottom:max(23px,env(safe-area-inset-bottom));left:24px;right:24px;display:grid;grid-template-columns:1fr 1fr;gap:21px 25px;padding-top:18px}.wobble{grid-column:1;width:100%}.readout{min-width:0;position:absolute;top:19px}.readout.stretch{left:55%}.readout.bounce{left:81%}.value{font-size:21px}.readout .micro{font-size:7px;letter-spacing:1px}#pour{grid-column:1/-1;justify-content:center;min-width:0;gap:18px;padding:15px;font-size:11px}.footer .label-line{font-size:8px;letter-spacing:1.5px}.label-line output{display:none}#hint{font-size:13px;left:50%;top:auto;bottom:185px}.edition{display:none}#cursor{display:none}}
+@media(prefers-reduced-motion:reduce){#pour,#cursor{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="world" aria-label="Interactive soft gummy bears. Drag any part to stretch, push down to squish, and release to throw." tabindex="0"></canvas>
+<header class="editorial">
+  <div class="eyebrow">Confectionery studies — No. 05</div>
+  <h1>Gummy<span>Bears.</span></h1>
+  <p class="intro">A little give. A lot of joy.<br>Five translucent bears on a white table.<br>Pick one up. See how far it goes.</p>
+  <p class="instructions">Drag to grab · Pull to stretch · Release to bounce</p>
+</header>
+<aside class="flavours" aria-label="Five gummy bear flavours">
+  <div class="card-head"><span>Flavours</span><span>05</span></div>
+  <div class="flavour"><i class="swatch" style="--c:#d6465e"></i>Cherry<small>01</small></div>
+  <div class="flavour"><i class="swatch" style="--c:#ee9b4c"></i>Orange<small>02</small></div>
+  <div class="flavour"><i class="swatch" style="--c:#e9cd53"></i>Lemon<small>03</small></div>
+  <div class="flavour"><i class="swatch" style="--c:#83bc59"></i>Apple<small>04</small></div>
+  <div class="flavour"><i class="swatch" style="--c:#e5dfb5"></i>Pineapple<small>05</small></div>
+</aside>
+<div id="hint">Go on, give one a little pull.</div>
+<div class="edition">Soft by nature. &nbsp; Made to play.</div>
+<footer class="footer">
+  <label class="wobble"><span class="label-line"><span>Wobble</span><output id="wobble-value">58%</output></span><input id="wobble" type="range" min="0" max="100" value="58" aria-label="Wobble intensity"></label>
+  <span class="footer-note">Perfectly imperfect. Endlessly elastic.</span>
+  <div class="readout stretch"><span class="micro">Stretch</span><span class="value" id="stretch">1.00</span><span class="unit">×</span></div>
+  <div class="readout bounce"><span class="micro">Bounce</span><span class="value" id="bounce">0.00</span></div>
+  <button id="pour" type="button"><span>Pour more bears</span><span class="plus" aria-hidden="true">+</span></button>
+</footer>
+<div id="cursor" aria-hidden="true"></div>
+<div id="status" role="status">A LITTLE SWEETNESS IS TAKING SHAPE…</div>
+<div id="error" role="alert"></div>
+<span class="sr-only" id="announcement" role="status" aria-live="polite"></span>
+<script type="module">
+// The only external resource is a pinned copy of three.js. All geometry,
+// physics, environment lighting and textures are generated in this document.
+const CDN='https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+const status=document.querySelector('#status');
+try { await boot(await import(CDN)); }
+catch(error){ console.error(error);status.style.display='none';const el=document.querySelector('#error');el.style.display='block';el.textContent='The candy studio could not start. Please check your internet connection (three.js loads from a CDN) and that WebGL is enabled, then reload. '+error.message; }
+
+async function boot(THREE){
+const V=THREE.Vector3, canvas=document.querySelector('#world');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});
+renderer.setClearColor(0xfafaf7);
+renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.13;
+const scene=new THREE.Scene();scene.background=new THREE.Color(0xfafaf7);
+const camera=new THREE.PerspectiveCamera(32,innerWidth/innerHeight,.1,90);
+let viewHeight=10.7;
+let qualityScale=1;
+function setResolution(){const ratio=Math.min(devicePixelRatio,1.25,Math.sqrt(1600000/(innerWidth*innerHeight)))*qualityScale;renderer.setPixelRatio(ratio);}
+function resize(){
+  const w=innerWidth,h=innerHeight,mobile=w<650;
+  camera.aspect=w/h;viewHeight=mobile?16.8:9.4;
+  const distance=viewHeight/(2*Math.tan(THREE.MathUtils.degToRad(16)));
+  const target=new V(mobile?.25:-1.1,mobile?2.3:1.75,0);
+  camera.position.copy(target).add(new V(2.4,5.3,19).normalize().multiplyScalar(distance));camera.lookAt(target);camera.updateProjectionMatrix();
+  setResolution();renderer.setSize(w,h);
+}
+resize();addEventListener('resize',resize);
+
+// A procedural studio environment, including two long softboxes. No HDRI files.
+const studio=new THREE.Scene();studio.background=new THREE.Color(0xdaddd4);
+studio.add(new THREE.HemisphereLight(0xffffff,0xb7bcab,2.5));
+function panel(x,y,z,sx,sy,power){const mesh=new THREE.Mesh(new THREE.PlaneGeometry(sx,sy),new THREE.MeshBasicMaterial({color:new THREE.Color().setScalar(power),side:THREE.DoubleSide}));mesh.position.set(x,y,z);mesh.lookAt(0,1,0);studio.add(mesh);}
+panel(-4,7,4,4,7,5);panel(5,6,-3,3,6,4);panel(0,9,0,7,4,3);panel(3,3,6,1.1,5,2.7);
+const pmrem=new THREE.PMREMGenerator(renderer);const env=pmrem.fromScene(studio,.035,.1,40);scene.environment=env.texture;scene.environmentIntensity=.8;pmrem.dispose();studio.traverse(o=>{o.geometry?.dispose();o.material?.dispose();});
+scene.add(new THREE.HemisphereLight(0xffffff,0xc9cebc,2));
+const key=new THREE.DirectionalLight(0xfffaf0,2.6);key.position.set(-4,9,6);scene.add(key);
+const rim=new THREE.DirectionalLight(0xffffff,2.4);rim.position.set(4,6,-5);scene.add(rim);
+const fill=new THREE.DirectionalLight(0xf4ffed,.7);fill.position.set(0,3,9);scene.add(fill);
+const table=new THREE.Mesh(new THREE.PlaneGeometry(160,160),new THREE.MeshBasicMaterial({color:0xfafaf7,toneMapped:false}));table.rotation.x=-Math.PI/2;table.position.y=-.025;scene.add(table);
+
+// Smooth union of ellipsoid SDFs. The contour is polygonized ONCE with marching
+// tetrahedra (a cube subdivision); there are no intersecting sphere body meshes.
+const forms=[
+ [0,1.21,0,.64,.94,.43], [0,1.80,.015,.61,.66,.43], [0,1.32,.28,.49,.68,.30],
+ [0,2.39,0,.34,.49,.32], [0,2.97,0,.66,.65,.45],
+ [-.47,3.48,-.015,.29,.32,.25],[.47,3.48,-.015,.29,.32,.25],
+ [0,2.80,.40,.34,.27,.25],
+ [-.61,1.96,0,.30,.35,.30],[-.80,1.64,.015,.29,.39,.29],[-.86,1.38,.08,.28,.32,.29],
+ [.61,1.96,0,.30,.35,.30],[.80,1.64,.015,.29,.39,.29],[.86,1.38,.08,.28,.32,.29],
+ [-.35,.47,.015,.30,.47,.34],[-.37,.24,.12,.32,.27,.38],
+ [.35,.47,.015,.30,.47,.34],[.37,.24,.12,.32,.27,.38]
+];
+function sdf(x,y,z){let d=1e5;for(const f of forms){const a=x-f[0],b=y-f[1],c=z-f[2];const k0=Math.sqrt((a/f[3])**2+(b/f[4])**2+(c/f[5])**2),k1=Math.sqrt((a/(f[3]*f[3]))**2+(b/(f[4]*f[4]))**2+(c/(f[5]*f[5]))**2);const q=k0*(k0-1)/Math.max(k1,1e-6);const h=Math.max(.17-Math.abs(d-q),0)/.17;d=Math.min(d,q)-h*h*.17*.25;}return d;}
+function makeSurface(){
+ const step=.10,nx=Math.ceil(2.47/step)+1,ny=Math.ceil(4.03/step)+1,nz=Math.ceil(1.625/step)+1,ox=-1.235,oy=-.13,oz=-.72;
+ const field=new Float32Array(nx*ny*nz),pts=[],norm=[],idx=[],edges=new Map();
+ const at=(x,y,z)=>(z*ny+y)*nx+x;
+ for(let z=0;z<nz;z++)for(let y=0;y<ny;y++)for(let x=0;x<nx;x++)field[at(x,y,z)]=sdf(ox+x*step,oy+y*step,oz+z*step);
+ function vertex(a,b){const key=a<b?a+':'+b:b+':'+a;if(edges.has(key))return edges.get(key);const t=field[a]/(field[a]-field[b]);const ax=a%nx,ay=Math.floor(a/nx)%ny,az=Math.floor(a/(nx*ny)),bx=b%nx,by=Math.floor(b/nx)%ny,bz=Math.floor(b/(nx*ny));const x=ox+(ax+(bx-ax)*t)*step,y=oy+(ay+(by-ay)*t)*step,z=oz+(az+(bz-az)*t)*step;const e=.0015;let dx=sdf(x+e,y,z)-sdf(x-e,y,z),dy=sdf(x,y+e,z)-sdf(x,y-e,z),dz=sdf(x,y,z+e)-sdf(x,y,z-e);const l=Math.hypot(dx,dy,dz)||1;dx/=l;dy/=l;dz/=l;const i=pts.length/3;pts.push(x,y,z);norm.push(dx,dy,dz);edges.set(key,i);return i;}
+ function triangle(a,b,c){const ax=pts[b*3]-pts[a*3],ay=pts[b*3+1]-pts[a*3+1],az=pts[b*3+2]-pts[a*3+2],bx=pts[c*3]-pts[a*3],by=pts[c*3+1]-pts[a*3+1],bz=pts[c*3+2]-pts[a*3+2];if((ay*bz-az*by)*norm[a*3]+(az*bx-ax*bz)*norm[a*3+1]+(ax*by-ay*bx)*norm[a*3+2]>0)idx.push(a,b,c);else idx.push(a,c,b);}
+ const tetra=[[0,5,1,6],[0,1,2,6],[0,2,3,6],[0,3,7,6],[0,7,4,6],[0,4,5,6]];
+ for(let z=0;z<nz-1;z++)for(let y=0;y<ny-1;y++)for(let x=0;x<nx-1;x++){
+  const cube=[at(x,y,z),at(x+1,y,z),at(x+1,y+1,z),at(x,y+1,z),at(x,y,z+1),at(x+1,y,z+1),at(x+1,y+1,z+1),at(x,y+1,z+1)];
+  const signs=cube.map(i=>field[i]<0);if(signs.every(Boolean)||!signs.some(Boolean))continue;
+  for(const t of tetra){const inside=[],outside=[];for(const c of t)(signs[c]?inside:outside).push(cube[c]);if(inside.length===0||inside.length===4)continue;if(inside.length===1||inside.length===3){const a=inside.length===1?inside:outside,b=inside.length===1?outside:inside;triangle(vertex(a[0],b[0]),vertex(a[0],b[1]),vertex(a[0],b[2]));}else{const a=vertex(inside[0],outside[0]),b=vertex(inside[0],outside[1]),c=vertex(inside[1],outside[0]),d=vertex(inside[1],outside[1]);triangle(a,b,c);triangle(b,d,c);}}
+ }
+ const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pts,3));g.setAttribute('normal',new THREE.Float32BufferAttribute(norm,3));g.setIndex(idx);g.computeBoundingSphere();return g;
+}
+await new Promise(resolve=>requestAnimationFrame(resolve));
+const geometry=makeSurface();
+
+// 26 mass points, including front/back support points. The non-coplanar clusters
+// retain a real 3D rest volume, rather than acting like a two-dimensional puppet.
+const REST=[
+ [0,.85,0],[0,1.40,0],[0,1.99,0],[0,2.43,0],[0,2.97,0],
+ [-.47,3.48,-.015],[.47,3.48,-.015],[0,2.80,.47],
+ [-.61,1.96,0],[-.80,1.64,.015],[-.86,1.38,.08],
+ [.61,1.96,0],[.80,1.64,.015],[.86,1.38,.08],
+ [-.32,.64,0],[-.37,.25,.12],[.32,.64,0],[.37,.25,.12],
+ [0,.95,-.30],[0,.95,.32],[0,1.51,-.35],[0,1.51,.40],
+ [0,2.04,-.29],[0,2.04,.30],[0,2.99,-.31],[0,3.08,.30]
+].map(p=>new V(...p));
+const N=REST.length;
+const RAD=[.43,.46,.43,.26,.44,.24,.24,.20,.23,.235,.25,.23,.235,.25,.235,.255,.235,.255,.17,.17,.17,.18,.17,.17,.18,.18];
+const CONTACT_RAD=[.60,.64,.59,.31,.64,.29,.29,.25,.29,.30,.30,.29,.30,.30,.29,.32,.29,.32,.18,.18,.18,.19,.18,.18,.20,.20];
+const invMass=REST.map((_,i)=>[0,1,2,18,19,20,21,22,23].includes(i)?.55:1);
+// Four influences per vertex, evaluated by the GPU. Local affine frames stretch
+// the limb/neck sections while the determinant correction thins their diameter.
+function skinWeights(p){const d=REST.map((r,i)=>[i,1/Math.pow(Math.max(.12,p.distanceTo(r)),4)]).sort((a,b)=>b[1]-a[1]).slice(0,4);const sum=d.reduce((s,x)=>s+x[1],0);return{ids:d.map(x=>x[0]),weights:d.map(x=>x[1]/sum)};}
+const skinIds=[],skinValues=[],skinThickness=[],pos=geometry.attributes.position;
+for(let i=0;i<pos.count;i++){const skin=skinWeights(new V().fromBufferAttribute(pos,i));skinIds.push(...skin.ids);skinValues.push(...skin.weights);skinThickness.push(skin.ids.reduce((s,n,k)=>s+Math.max(.32,RAD[n]*2.2)*skin.weights[k],0));}
+geometry.setAttribute('aNodes',new THREE.Float32BufferAttribute(skinIds,4));geometry.setAttribute('aWeights',new THREE.Float32BufferAttribute(skinValues,4));
+geometry.setAttribute('aThickness',new THREE.Float32BufferAttribute(skinThickness,1));
+
+// Small, allocation-free 3x3 routines, row-major on the CPU.
+const I=[1,0,0,0,1,0,0,0,1];
+function det(a){return a[0]*(a[4]*a[8]-a[5]*a[7])-a[1]*(a[3]*a[8]-a[5]*a[6])+a[2]*(a[3]*a[7]-a[4]*a[6]);}
+function inverse(a){const d=det(a);if(Math.abs(d)<1e-9)return I.slice();const k=1/d;return[(a[4]*a[8]-a[5]*a[7])*k,(a[2]*a[7]-a[1]*a[8])*k,(a[1]*a[5]-a[2]*a[4])*k,(a[5]*a[6]-a[3]*a[8])*k,(a[0]*a[8]-a[2]*a[6])*k,(a[2]*a[3]-a[0]*a[5])*k,(a[3]*a[7]-a[4]*a[6])*k,(a[1]*a[6]-a[0]*a[7])*k,(a[0]*a[4]-a[1]*a[3])*k];}
+function mul(a,b){const c=new Array(9);for(let r=0;r<3;r++)for(let j=0;j<3;j++)c[r*3+j]=a[r*3]*b[j]+a[r*3+1]*b[j+3]+a[r*3+2]*b[j+6];return c;}
+function mv(a,v,out){return out.set(a[0]*v.x+a[1]*v.y+a[2]*v.z,a[3]*v.x+a[4]*v.y+a[5]*v.z,a[6]*v.x+a[7]*v.y+a[8]*v.z);}
+function rotation(a){let r=a.slice();for(let k=0;k<5;k++){const b=inverse(r);for(let i=0;i<3;i++)for(let j=0;j<3;j++)r[i*3+j]=.5*(r[i*3+j]+b[j*3+i]);}if(det(r)<0){r[2]*=-1;r[5]*=-1;r[8]*=-1;}return r;}
+const definitions=[
+ {ids:[0,1,2,14,16,18,19,20,21,22,23],stiff:.25},
+ {ids:[4,5,6,7,24,25],stiff:.38},
+ {ids:[2,3,4,8,11,22,23,24,25],stiff:.007},
+ {ids:[2,8,9,10,22,23],stiff:.025},{ids:[2,11,12,13,22,23],stiff:.025},
+ {ids:[0,14,15,18,19],stiff:.20},{ids:[0,16,17,18,19],stiff:.20}
+];
+const clusterTemplates=definitions.map(def=>{const center=new V();def.ids.forEach(i=>center.add(REST[i]));center.divideScalar(def.ids.length);const q=def.ids.map(i=>REST[i].clone().sub(center)),qq=new Array(9).fill(0);q.forEach(v=>{const a=[v.x,v.y,v.z];for(let r=0;r<3;r++)for(let j=0;j<3;j++)qq[r*3+j]+=a[r]*a[j];});return{...def,q,inv:inverse(qq)};});
+const links=[];
+function link(a,b,stiff=.03,max=2.8){links.push({a,b,len:REST[a].distanceTo(REST[b]),stiff,max});}
+[[0,1],[1,2],[2,3],[3,4],[4,5],[4,6],[4,7],[2,8],[8,9],[9,10],[2,11],[11,12],[12,13],[0,14],[14,15],[0,16],[16,17],[14,16],[5,6]].forEach(e=>link(...e,e.includes(3)?.002:([8,9,10,11,12,13].some(n=>e.includes(n))?.012:.03)));
+for(const [i,j] of [[0,18],[0,19],[1,20],[1,21],[2,22],[2,23],[4,24],[4,25],[18,19],[20,21],[22,23],[24,25]])link(i,j,.045,1.65);
+
+const flavours=[
+ {name:'Cherry',color:0xff4558,absorb:0xff1935,shadow:'#e74560'},
+ {name:'Orange',color:0xff993c,absorb:0xff8b23,shadow:'#ec9341'},
+ {name:'Lemon',color:0xffdc4d,absorb:0xffd43d,shadow:'#e5c943'},
+ {name:'Apple',color:0x7fd44d,absorb:0x59c633,shadow:'#67b947'},
+ {name:'Pineapple',color:0xfff6ce,absorb:0xe8d887,shadow:'#ceca85'}
+];
+function shadowTexture(){const c=document.createElement('canvas');c.width=c.height=128;const ctx=c.getContext('2d'),g=ctx.createRadialGradient(64,64,3,64,64,63);g.addColorStop(0,'rgba(255,255,255,.70)');g.addColorStop(.25,'rgba(255,255,255,.48)');g.addColorStop(.58,'rgba(255,255,255,.16)');g.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=g;ctx.fillRect(0,0,128,128);return new THREE.CanvasTexture(c);}
+const shadowMap=shadowTexture(),shadowGeometry=new THREE.PlaneGeometry(1,1);
+const eyeGeometry=new THREE.SphereGeometry(1,16,10);
+const bears=[],meshes=[];let nextId=0,wobble=.58,grab=null;
+const uRest=REST.map(p=>p.clone());
+function candyMaterial(f,b){
+ const mat=new THREE.MeshPhysicalMaterial({color:f.color,roughness:.13,metalness:0,transmission:.90,thickness:1.45,ior:1.46,attenuationColor:f.absorb,attenuationDistance:.85,clearcoat:1,clearcoatRoughness:.065,envMapIntensity:.7,side:THREE.FrontSide});
+ mat.onBeforeCompile=shader=>{
+  shader.uniforms.uNodes={value:b.p};shader.uniforms.uRest={value:uRest};shader.uniforms.uFrames={value:b.frames};shader.uniforms.uNormalFrames={value:b.normalFrames};
+  shader.vertexShader=`uniform vec3 uNodes[${N}];uniform vec3 uRest[${N}];uniform mat3 uFrames[${N}];uniform mat3 uNormalFrames[${N}];attribute vec4 aNodes;attribute vec4 aWeights;attribute float aThickness;varying float vCandyThickness;\n`+shader.vertexShader;
+  shader.vertexShader=shader.vertexShader.replace('#include <beginnormal_vertex>',`vec3 objectNormal=vec3(0.0);for(int k=0;k<4;k++){int n=int(aNodes[k]);objectNormal+=aWeights[k]*uNormalFrames[n]*normal;}\n#ifdef USE_TANGENT\nvec3 objectTangent=vec3(tangent.xyz);\n#endif`);
+  shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>',`vCandyThickness=0.0;vec3 transformed=vec3(0.0);for(int k=0;k<4;k++){int n=int(aNodes[k]);vCandyThickness+=aWeights[k]*aThickness*length(uFrames[n]*vec3(0.0,0.0,1.0));transformed+=aWeights[k]*(uNodes[n]+uFrames[n]*(position-uRest[n]));}`);
+  shader.fragmentShader='varying float vCandyThickness;\n'+shader.fragmentShader;
+  shader.fragmentShader=shader.fragmentShader.replace('#include <transmission_fragment>',THREE.ShaderChunk.transmission_fragment.replace('material.thickness = thickness;','material.thickness = thickness * vCandyThickness;'));
+  b.shader=shader;
+ };
+ mat.customProgramCacheKey=()=> 'gummy-volume-skin-v2';return mat;
+}
+function createBear(flavour,x,y,z,yaw=0,scale=1){
+ const f=flavours[flavour],q=new THREE.Quaternion().setFromEuler(new THREE.Euler(0,yaw,0));
+ const b={id:nextId++,flavour,scale,standing:y<1,yaw,pressScale:1,p:REST.map(v=>v.clone().multiplyScalar(scale).applyQuaternion(q).add(new V(x-.4,y,z))),prev:[],v:REST.map(()=>new V()),frames:REST.map(()=>new THREE.Matrix3().setFromMatrix4(new THREE.Matrix4().makeRotationFromQuaternion(q)).multiplyScalar(scale)),cluster:[],time:Math.random()*6+4,age:0,contact:false,stretch:1};
+ b.prev=b.p.map(v=>v.clone());b.normalFrames=b.frames.map(frame=>frame.clone().invert().transpose());b.cluster=clusterTemplates.map(t=>({...t,center:new V(),a:I.slice(),r:I.slice()}));
+ b.mesh=new THREE.Mesh(geometry,candyMaterial(f,b));b.mesh.frustumCulled=false;b.mesh.castShadow=false;b.mesh.userData.bear=b;scene.add(b.mesh);meshes.push(b.mesh);
+ // Molded facial details follow exactly the same deformation field as the skin.
+ b.face=[];
+ const eyeMat=new THREE.MeshPhysicalMaterial({color:new THREE.Color(f.absorb).multiplyScalar(.22),roughness:.19,clearcoat:1,transmission:.12,thickness:.09,ior:1.45,envMapIntensity:1.4});
+ for(const [x1,y1,z1,sx,sy,sz] of [[-.235,3.10,.413,.065,.077,.048],[.235,3.10,.413,.065,.077,.048],[0,2.87,.647,.087,.064,.047]]){
+  const anchor=new V(x1,y1,z1),mesh=new THREE.Mesh(eyeGeometry,eyeMat);scene.add(mesh);b.face.push({mesh,anchor,skin:skinWeights(anchor),size:new V(sx,sy,sz)});
+ }
+ b.shadows=[];for(let k=0;k<3;k++){const material=new THREE.MeshBasicMaterial({color:f.shadow,map:shadowMap,transparent:true,opacity:.20,depthWrite:false,toneMapped:false});const mesh=new THREE.Mesh(shadowGeometry,material);mesh.rotation.x=-Math.PI/2;mesh.position.y=.003+k*.001;mesh.renderOrder=1;scene.add(mesh);b.shadows.push(mesh);}
+ bears.push(b);return b;
+}
+// Initial arrangement leaves the title and flavour card clear.
+createBear(3,-1.75,.05,.30,-.17);
+createBear(1,-.25,.07,-1.65,-.22,.96);
+createBear(4,2.10,.10,-1.30,.10,1.02);
+createBear(2,3.10,.03,.85,.12);
+createBear(0,.62,.04,1.15,-.09,1.03);
+
+const temp=new V(),delta=new V(),goal=new V(),local=new V();
+function fitCluster(b,c){
+ c.center.set(0,0,0);for(const i of c.ids)c.center.add(b.p[i]);c.center.divideScalar(c.ids.length);
+ const pq=new Array(9).fill(0);for(let k=0;k<c.ids.length;k++){const p=b.p[c.ids[k]],q=c.q[k],x=p.x-c.center.x,y=p.y-c.center.y,z=p.z-c.center.z;pq[0]+=x*q.x;pq[1]+=x*q.y;pq[2]+=x*q.z;pq[3]+=y*q.x;pq[4]+=y*q.y;pq[5]+=y*q.z;pq[6]+=z*q.x;pq[7]+=z*q.y;pq[8]+=z*q.z;}
+ c.a=mul(pq,c.inv);c.r=rotation(c.a);
+}
+function shapeMatch(b){
+ for(const c of b.cluster){fitCluster(b,c);const determinant=det(c.a),volumeScale=THREE.MathUtils.clamp(b.scale/Math.cbrt(Math.max(.08,determinant)),.85,1.18),rigidity=.70+(1-wobble)*.15;
+  if(c===b.cluster[1]){
+   // A gummy neck bends, but cannot turn the entire head inside out.
+   const bodyQ=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().setFromMatrix3(new THREE.Matrix3().set(...b.cluster[0].r)));
+   const headQ=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().setFromMatrix3(new THREE.Matrix3().set(...c.r)));
+   const angle=bodyQ.angleTo(headQ);if(angle>1.10){headQ.slerp(bodyQ,1-1.10/angle);const e=new THREE.Matrix3().setFromMatrix4(new THREE.Matrix4().makeRotationFromQuaternion(headQ)).elements;c.r=[e[0],e[3],e[6],e[1],e[4],e[7],e[2],e[5],e[8]];}
+  }
+  // Blend affine elasticity with a rotation goal; normalize det(A) to retain volume.
+  let m=c.a.map((a,i)=>a*volumeScale*(1-rigidity)+c.r[i]*b.scale*rigidity);
+  // Under a top-down press, the contact patch supports a volume-preserving
+  // affine squash: height s, both horizontal axes 1/sqrt(s). Releasing restores
+  // the original rest shape, storing/releasing elastic energy through the solver.
+  if(b.pressScale<.999){const sy=b.pressScale,sx=1/Math.sqrt(sy),cs=Math.cos(b.yaw),sn=Math.sin(b.yaw);m=[cs*sx*b.scale,0,sn*sx*b.scale,0,sy*b.scale,0,-sn*sx*b.scale,0,cs*sx*b.scale];}
+  const strength=c.stiff*(.65+(1-wobble)*.9);
+  for(let k=0;k<c.ids.length;k++){const i=c.ids[k];mv(m,c.q[k],goal).add(c.center).sub(b.p[i]);b.p[i].addScaledVector(goal,strength);}
+ }
+}
+const DT=1/120,GRAVITY=17.5,ITERATIONS=5;
+let simTime=0,impacts=0,maxPenetration=0;
+function constrainLinks(b){
+ for(const e of links){const a=b.p[e.a],c=b.p[e.b];delta.subVectors(c,a);const d=delta.length()||1e-6,sy=b.pressScale,sx=1/Math.sqrt(sy),qa=REST[e.a],qb=REST[e.b],rest=(sy<.999?Math.hypot((qb.x-qa.x)*sx,(qb.y-qa.y)*sy,(qb.z-qa.z)*sx):e.len)*b.scale,ratio=d/rest;
+  let correction=(d-rest)*e.stiff;if(ratio>e.max)correction=Math.max(correction,d-rest*e.max);if(ratio<.35)correction=Math.min(correction,d-rest*.35);
+  const wa=invMass[e.a],wb=invMass[e.b],s=correction/(d*(wa+wb));a.addScaledVector(delta,s*wa);c.addScaledVector(delta,-s*wb);
+ }
+ goal.copy(b.p[2]).add(b.p[4]).multiplyScalar(.5);b.p[3].lerp(goal,.18);
+}
+function dragConstraint(){
+ if(!grab)return;const b=grab.b;let sum=0;temp.set(0,0,0);for(let k=0;k<4;k++){const i=grab.skin.ids[k],w=grab.skin.weights[k];temp.addScaledVector(b.p[i],w);sum+=w*w*invMass[i];}
+ // Anchor includes the picked surface offset, so pressing down works immediately.
+ delta.copy(grab.target).sub(grab.offset).sub(temp);const len=delta.length();if(len>.32)delta.multiplyScalar(.32/len);
+ for(let k=0;k<4;k++){const i=grab.skin.ids[k],w=grab.skin.weights[k];b.p[i].addScaledVector(delta,w*invMass[i]/sum*.72);}
+}
+function floorRadius(b,i){
+ const dims=i===4?[.64,.64,.44]:i===1?[.62,.63,.44]:i===2?[.59,.48,.42]:i===0?[.56,.55,.43]:i===15||i===17?[.31,.255,.37]:null;
+ if(!dims)return RAD[i]*b.scale*Math.min(1,b.pressScale*1.2);const r=b.cluster[i===4?1:i===15?5:i===17?6:0].r;return Math.hypot(r[3]*dims[0],r[4]*dims[1],r[5]*dims[2])*b.scale*b.pressScale;
+}
+function floorAndWalls(b){
+ for(let i=0;i<N;i++){const p=b.p[i],r=floorRadius(b,i);if(p.y<r){p.y=r;b.contact=true;}p.x=THREE.MathUtils.clamp(p.x,-6.0+RAD[i]*b.scale,6.5-RAD[i]*b.scale);p.z=THREE.MathUtils.clamp(p.z,-3.5+RAD[i]*b.scale,3.4-RAD[i]*b.scale);p.y=Math.min(p.y,13);}
+}
+// Broadphase AABBs and mass-sphere narrowphase. Five contact passes per substep,
+// with a final projection after shape matching. Speed clamping + 120 Hz prevents tunnelling.
+function collideBears(){
+ const bounds=bears.map(b=>{let minx=1e6,maxx=-1e6,miny=1e6,maxy=-1e6,minz=1e6,maxz=-1e6;for(let i=0;i<N;i++){const p=b.p[i],r=CONTACT_RAD[i]*b.scale;minx=Math.min(minx,p.x-r);maxx=Math.max(maxx,p.x+r);miny=Math.min(miny,p.y-r);maxy=Math.max(maxy,p.y+r);minz=Math.min(minz,p.z-r);maxz=Math.max(maxz,p.z+r);}return[minx,maxx,miny,maxy,minz,maxz];});
+ for(let a=0;a<bears.length;a++)for(let b=a+1;b<bears.length;b++){
+  const aa=bounds[a],bb=bounds[b];if(aa[1]<bb[0]||bb[1]<aa[0]||aa[3]<bb[2]||bb[3]<aa[2]||aa[5]<bb[4]||bb[5]<aa[4])continue;
+  const ba=bears[a],bc=bears[b];for(let i=0;i<N;i++)for(let j=0;j<N;j++){const p=ba.p[i],q=bc.p[j],r=(CONTACT_RAD[i]*ba.scale+CONTACT_RAD[j]*bc.scale);delta.subVectors(q,p);let dd=delta.lengthSq();if(dd>=r*r)continue;if(dd<1e-10){delta.set(.001,0,0);dd=1e-6;}const d=Math.sqrt(dd),penetration=r-d;maxPenetration=Math.max(maxPenetration,penetration);const wa=invMass[i],wb=invMass[j],s=penetration/(d*(wa+wb));p.addScaledVector(delta,-s*wa);q.addScaledVector(delta,s*wb);}
+ }
+}
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function simulate(){
+ simTime+=DT;
+ for(const b of bears){
+  b.age+=DT;b.time-=DT;b.contact=false;
+  if(b.recovering){b.pressScale+=(1-b.pressScale)*Math.min(1,DT*11);for(const v of b.v)v.multiplyScalar(Math.exp(-DT*3));if(b.pressScale>.998){b.pressScale=1;b.recovering=false;}}
+  // Real impulses at the feet/chest produce a squash, flight and damped landing.
+  const low=Math.min(b.p[15].y,b.p[17].y)<.4;
+  if(b.standing&&low){let vx=0,vz=0;for(const v of b.v){vx+=v.x;vz+=v.z;}vx=vx/N*.45;vz=vz/N*.45;for(const v of b.v){v.x-=vx;v.z-=vz;}}
+  if(b.time<0&&!reducedMotion&&grab?.b!==b&&low){b.time=4+Math.random()*7;const jump=1.1+wobble*1.35;for(let i=0;i<N;i++){b.v[i].y+=jump*(i===15||i===17?1.35:.8);b.v[i].x+=(Math.random()-.5)*.15;} }
+  for(let i=0;i<N;i++){b.prev[i].copy(b.p[i]);b.v[i].y-=GRAVITY*DT;b.v[i].multiplyScalar(Math.exp(-DT*(.6+(1-wobble)*1.3)));b.v[i].clampLength(0,17);b.p[i].addScaledVector(b.v[i],DT);}
+ }
+ for(let k=0;k<ITERATIONS;k++){for(const b of bears){shapeMatch(b);constrainLinks(b);
+   // A standing candy has a broad, flat contact patch. This compliant support
+   // constraint prevents numerical rolling on the spherical contact proxies.
+   // Picking it up removes the support, so throws and landings rotate freely.
+   if((b.standing&&grab?.b!==b)||b.pressScale<.999){let cx=0,cy=0,cz=0,rx=0,ry=0,rz=0;for(let i=0;i<N;i++){cx+=b.p[i].x;cy+=b.p[i].y;cz+=b.p[i].z;rx+=REST[i].x;ry+=REST[i].y;rz+=REST[i].z;}cx/=N;cy/=N;cz/=N;rx/=N;ry/=N;rz/=N;const cs=Math.cos(b.yaw),sn=Math.sin(b.yaw),sx=1/Math.sqrt(b.pressScale),strength=b.pressScale<.999?.18:.065;for(let i=0;i<N;i++){const r=REST[i],dx=(r.x-rx)*b.scale*sx,dz=(r.z-rz)*b.scale*sx;b.p[i].x+=(cx+cs*dx+sn*dz-b.p[i].x)*strength;b.p[i].y+=(cy+(r.y-ry)*b.scale*b.pressScale-b.p[i].y)*strength;b.p[i].z+=(cz-sn*dx+cs*dz-b.p[i].z)*strength;}}
+  }dragConstraint();collideBears();for(const b of bears)floorAndWalls(b);}
+ // Contact is the last constraint: subsequent shape correction cannot undo it.
+ for(let k=0;k<3;k++){collideBears();for(const b of bears)floorAndWalls(b);}for(const b of bears){let impact=0;
+  for(let i=0;i<N;i++){
+   const incoming=b.v[i].y;b.v[i].subVectors(b.p[i],b.prev[i]).divideScalar(DT);
+   const r=floorRadius(b,i);if(b.p[i].y<r+.001){if(incoming<-1.1){b.v[i].y=Math.max(b.v[i].y,-incoming*(.18+wobble*.27));impact=Math.max(impact,-incoming);}else b.v[i].y=Math.max(0,b.v[i].y);b.v[i].x*=.91;b.v[i].z*=.91;}
+   b.v[i].clampLength(0,17);
+  }
+  if(impact>2){impacts++;b.lastImpact=simTime;}
+ }
+}
+
+function updateFrames(b){
+ const sums=Array.from({length:N},()=>new Array(9).fill(0)),counts=new Float32Array(N);
+ for(const c of b.cluster){fitCluster(b,c);const vol=THREE.MathUtils.clamp(b.scale/Math.cbrt(Math.max(.12,det(c.a))),.63,1.5);for(const i of c.ids){const weight=c.ids.length<8?1.5:1;for(let j=0;j<9;j++)sums[i][j]+=(c.a[j]*vol*.8+c.r[j]*b.scale*.2)*weight;counts[i]+=weight;}}
+ for(let i=0;i<N;i++){const a=sums[i],count=counts[i]||1;for(let j=0;j<9;j++)a[j]/=count;b.frames[i].set(...a);}
+ // Chain frames align to the current segment and use 1/sqrt(stretch) in the
+ // transverse plane, giving long, thin rubber necks and limbs at constant volume.
+ for(const [i,j] of [[3,4],[8,9],[9,10],[11,12],[12,13],[14,15],[16,17]]){
+  const axis=REST[j].clone().sub(REST[i]).normalize(),current=b.p[j].clone().sub(b.p[i]),length=current.length(),rest=REST[i].distanceTo(REST[j])*b.scale,s=THREE.MathUtils.clamp(length/rest,.42,3.4);
+  if(length<1e-5)continue;const base=rotation(sums[i]),baseMatrix=new THREE.Matrix3().set(...base),rotatedAxis=axis.clone().applyMatrix3(baseMatrix).normalize();const q=new THREE.Quaternion().setFromUnitVectors(rotatedAxis,current.divideScalar(length));const rot=new THREE.Matrix3().setFromMatrix4(new THREE.Matrix4().makeRotationFromQuaternion(q)).multiply(baseMatrix);const transverse=1/Math.sqrt(s),a=axis;const stretch=new THREE.Matrix3().set(transverse+(s-transverse)*a.x*a.x,(s-transverse)*a.x*a.y,(s-transverse)*a.x*a.z,(s-transverse)*a.y*a.x,transverse+(s-transverse)*a.y*a.y,(s-transverse)*a.y*a.z,(s-transverse)*a.z*a.x,(s-transverse)*a.z*a.y,transverse+(s-transverse)*a.z*a.z);rot.multiply(stretch).multiplyScalar(b.scale);b.frames[i].copy(rot);
+ }
+ for(let i=0;i<N;i++)b.normalFrames[i].copy(b.frames[i]).invert().transpose();
+ b.stretch=1;for(const e of links)b.stretch=Math.max(b.stretch,b.p[e.a].distanceTo(b.p[e.b])/(e.len*b.scale));
+}
+function deformPoint(b,point,skin,out){out.set(0,0,0);for(let k=0;k<4;k++){const i=skin.ids[k];local.copy(point).sub(REST[i]).applyMatrix3(b.frames[i]).add(b.p[i]);out.addScaledVector(local,skin.weights[k]);}return out;}
+function renderBear(b){
+ updateFrames(b);
+ for(const f of b.face){deformPoint(b,f.anchor,f.skin,f.mesh.position);const elements=new Array(9).fill(0);for(let k=0;k<4;k++){const a=b.frames[f.skin.ids[k]].elements;for(let j=0;j<9;j++)elements[j]+=a[j]*f.skin.weights[k];}const matrix=new THREE.Matrix4().setFromMatrix3(new THREE.Matrix3().fromArray(elements));f.mesh.quaternion.setFromRotationMatrix(matrix.extractRotation(matrix));f.mesh.scale.copy(f.size).multiplyScalar(b.scale);}
+ for(let k=0;k<3;k++){const node=b.p[[0,2,4][k]],h=Math.max(0,node.y-[.8,1.9,2.9][k]*b.scale),s=(k===0?2.4:k===1?1.8:1.45)*b.scale+h*.24;const shadow=b.shadows[k];shadow.position.x=node.x;shadow.position.z=node.z;shadow.scale.set(s,s*.72,1);shadow.material.opacity=(k===0?.30:.13)*Math.exp(-h*.55);}
+}
+
+// GPU skinning is mirrored into a small CPU proxy for accurate surface picking.
+// Only update it on pointerdown, keeping pointer movement and drawing inexpensive.
+const pickGeometry=geometry.clone();pickGeometry.deleteAttribute('aNodes');pickGeometry.deleteAttribute('aWeights');
+const pickMaterial=new THREE.MeshBasicMaterial({side:THREE.DoubleSide});const pickMesh=new THREE.Mesh(pickGeometry,pickMaterial);pickMesh.frustumCulled=false;
+const raycaster=new THREE.Raycaster(),pointer=new THREE.Vector2(5,5),dragPlane=new THREE.Plane(),cursor=document.querySelector('#cursor');
+const inversePick=new THREE.Matrix4();let pointerDown=false,moved=false,hasPlayed=false,hoverBear=null;
+function setPointer(event){pointer.set(event.clientX/innerWidth*2-1,-event.clientY/innerHeight*2+1);cursor.style.transform=`translate(${event.clientX}px,${event.clientY}px)`;cursor.style.opacity=event.pointerType==='touch'?0:1;raycaster.setFromCamera(pointer,camera);}
+function approximateHit(){
+ let nearest=null,min=Infinity;for(const b of bears)for(let i=0;i<N;i++){temp.copy(b.p[i]);const t=raycaster.ray.direction.dot(temp.sub(raycaster.ray.origin));if(t<0)continue;goal.copy(raycaster.ray.direction).multiplyScalar(t).add(raycaster.ray.origin);const d=goal.distanceToSquared(b.p[i]);if(d<(RAD[i]*b.scale+.16)**2&&t<min){nearest=b;min=t;}}return nearest;
+}
+function exactHit(){
+ let best=null;const positions=pickGeometry.attributes.position;
+ for(const b of bears){if(raycaster.ray.distanceSqToPoint(b.p[2])>14*b.scale*b.scale)continue;
+  for(let i=0;i<pos.count;i++){temp.fromBufferAttribute(pos,i);const skin={ids:[skinIds[i*4],skinIds[i*4+1],skinIds[i*4+2],skinIds[i*4+3]],weights:[skinValues[i*4],skinValues[i*4+1],skinValues[i*4+2],skinValues[i*4+3]]};deformPoint(b,temp,skin,goal);positions.setXYZ(i,goal.x,goal.y,goal.z);}
+  positions.needsUpdate=true;pickGeometry.computeBoundingSphere();pickMesh.updateMatrixWorld(true);const hit=raycaster.intersectObject(pickMesh,false)[0];if(hit&&(!best||hit.distance<best.hit.distance))best={b,hit};
+ }
+ return best;
+}
+canvas.addEventListener('pointerdown',event=>{
+ if(event.button!==0)return;setPointer(event);const result=exactHit();if(!result)return;
+ const {b,hit}=result,face=hit.face;const wasStanding=b.standing;b.standing=false;b.recovering=false;b.pressScale=1;const a=new V().fromBufferAttribute(pickGeometry.attributes.position,face.a),c=new V().fromBufferAttribute(pickGeometry.attributes.position,face.b),d=new V().fromBufferAttribute(pickGeometry.attributes.position,face.c);
+ // Recompute the winning face, since the shared proxy may last contain another bear.
+ for(const [out,index] of [[a,face.a],[c,face.b],[d,face.c]]){temp.fromBufferAttribute(pos,index);deformPoint(b,temp,{ids:skinIds.slice(index*4,index*4+4),weights:skinValues.slice(index*4,index*4+4)},out);}
+ const bary=new THREE.Triangle(a,c,d).getBarycoord(hit.point,new V()),restPoint=new V().fromBufferAttribute(pos,face.a).multiplyScalar(bary.x).addScaledVector(new V().fromBufferAttribute(pos,face.b),bary.y).addScaledVector(new V().fromBufferAttribute(pos,face.c),bary.z),skin=skinWeights(restPoint);
+ temp.set(0,0,0);for(let k=0;k<4;k++)temp.addScaledVector(b.p[skin.ids[k]],skin.weights[k]);
+ grab={b,skin,wasStanding,canPress:wasStanding&&restPoint.y>2.45,start:hit.point.clone(),offset:hit.point.clone().sub(temp),target:hit.point.clone(),last:hit.point.clone(),velocity:new V(),lastTime:performance.now()};
+ dragPlane.setFromNormalAndCoplanarPoint(camera.getWorldDirection(new V()),hit.point);pointerDown=true;moved=false;if(event.isTrusted)canvas.setPointerCapture(event.pointerId);cursor.classList.add('grabbing');
+ if(!hasPlayed){hasPlayed=true;document.querySelector('#hint').style.opacity=0;}
+});
+canvas.addEventListener('pointermove',event=>{
+ setPointer(event);
+ if(grab){const target=new V();if(raycaster.ray.intersectPlane(dragPlane,target)){
+  target.x=THREE.MathUtils.clamp(target.x,-5.8,6.3);target.y=THREE.MathUtils.clamp(target.y,-.75,10.5);target.z=THREE.MathUtils.clamp(target.z,-3.0,4.0);
+  if(grab.canPress&&target.y<grab.start.y-.12){grab.b.pressScale=THREE.MathUtils.clamp((target.y-grab.offset.y)/(REST[4].y*grab.b.scale),.28,1);target.z=grab.start.z;}else grab.b.pressScale=1;
+  const now=performance.now(),dt=Math.max(.008,(now-grab.lastTime)/1000);grab.velocity.copy(target).sub(grab.last).divideScalar(dt).clampLength(0,15);grab.last.copy(target);grab.lastTime=now;grab.target.copy(target);moved=true;
+ }}else{hoverBear=approximateHit();cursor.classList.toggle('over',!!hoverBear);}
+});
+function release(event){if(grab){const pressed=grab.b.pressScale<.95;if(pressed){grab.b.standing=grab.wasStanding;grab.b.recovering=true;for(const v of grab.b.v)v.multiplyScalar(.45);}else grab.b.pressScale=1;if(!pressed&&event?.type!=='pointercancel'&&moved&&performance.now()-grab.lastTime<100){const velocity=grab.velocity.clone().multiplyScalar(.42);for(let i=0;i<N;i++)grab.b.v[i].addScaledVector(velocity,.38);for(let k=0;k<4;k++)grab.b.v[grab.skin.ids[k]].addScaledVector(velocity,.6*grab.skin.weights[k]);}grab=null;}pointerDown=false;cursor.classList.remove('grabbing');if(event&&canvas.hasPointerCapture(event.pointerId))canvas.releasePointerCapture(event.pointerId);}
+canvas.addEventListener('pointerup',release);canvas.addEventListener('pointercancel',release);canvas.addEventListener('lostpointercapture',()=>release());canvas.addEventListener('pointerleave',()=>{if(!pointerDown)cursor.style.opacity=0;});addEventListener('blur',()=>release());document.addEventListener('visibilitychange',()=>{if(document.hidden)release();});canvas.addEventListener('contextmenu',e=>e.preventDefault());
+document.querySelector('#wobble').addEventListener('input',event=>{wobble=Number(event.target.value)/100;document.querySelector('#wobble-value').textContent=event.target.value+'%';event.target.style.background=`linear-gradient(to right,#626c52 0 ${event.target.value}%,#d9ddd2 ${event.target.value}% 100%)`;});
+
+let pouring=false;
+function removeBear(b){const i=bears.indexOf(b);if(i<0)return;bears.splice(i,1);meshes.splice(meshes.indexOf(b.mesh),1);scene.remove(b.mesh);b.mesh.material.dispose();for(const f of b.face)scene.remove(f.mesh);b.face[0].mesh.material.dispose();for(const s of b.shadows){scene.remove(s);s.material.dispose();}}
+function pour(){
+ if(pouring)return;pouring=true;const button=document.querySelector('#pour');button.disabled=true;
+ // Bounded simulation: old bears are lifted out before a new handful, so repeated
+ // pouring cannot grow the physics workload without limit or remove a held bear.
+ const excess=Math.max(0,bears.length+5-15),retired=bears.filter(b=>grab?.b!==b).sort((a,b)=>a.id-b.id).slice(0,excess);retired.forEach(removeBear);
+ for(let i=0;i<5;i++)setTimeout(()=>{const b=createBear(i,(Math.random()-.5)*4.9,6.5+Math.random()*1.3,(Math.random()-.5)*3.2,(Math.random()-.5)*1.6,.87+Math.random()*.16);const center=b.p[1].clone();const tilt=new THREE.Quaternion().setFromEuler(new THREE.Euler((Math.random()-.5)*.8,0,(Math.random()-.5)*1));for(let n=0;n<N;n++){b.p[n].sub(center).applyQuaternion(tilt).add(center);b.prev[n].copy(b.p[n]);b.v[n].set((Math.random()-.5)*.5,-1,0);}document.querySelector('#announcement').textContent='Five more bears poured onto the table.';},i*125);
+ setTimeout(()=>{pouring=false;button.disabled=false;},1000);
+}
+document.querySelector('#pour').addEventListener('click',pour);
+canvas.addEventListener('keydown',event=>{if(event.code==='Space'){event.preventDefault();pour();}if(event.key==='Escape')release();});
+
+let accumulator=0,last=performance.now(),lastDraw=last,readoutTime=0,frames=0,fps=60,fpsTime=last,qualityTime=last;
+function animate(now){
+ requestAnimationFrame(animate);if(document.hidden){last=lastDraw=now;accumulator=0;return;}
+ // Keep drawing at 60 Hz even on 120/240 Hz displays; physics stays at 120 Hz.
+ if(now-lastDraw<1000/60-.5)return;lastDraw+=1000/60;if(now-lastDraw>1000/60)lastDraw=now;
+ accumulator+=Math.min((now-last)/1000,.05);last=now;
+ let steps=0;while(accumulator>=DT&&steps<6){simulate();accumulator-=DT;steps++;}
+ for(const b of bears)renderBear(b);
+ renderer.render(scene,camera);frames++;
+ if(now-fpsTime>1000){fps=frames*1000/(now-fpsTime);frames=0;fpsTime=now;}
+ if(now-qualityTime>2500){qualityTime=now;if(fps<45&&qualityScale>.52){qualityScale=Math.max(.5,qualityScale*.82);setResolution();}}
+ if(now-readoutTime>80){readoutTime=now;let stretch=1,bounce=0;for(const b of bears){stretch=Math.max(stretch,b.stretch);for(const v of b.v)bounce+=v.y*v.y;}bounce=Math.sqrt(bounce/(bears.length*N))/5;
+  document.querySelector('#stretch').textContent=Math.min(stretch,9.99).toFixed(2);document.querySelector('#bounce').textContent=bounce.toFixed(2);
+ }
+}
+for(const b of bears)renderBear(b);renderer.render(scene,camera);status.style.opacity=0;setTimeout(()=>status.remove(),550);requestAnimationFrame(animate);
+// Read-only inspection hooks for validating the simulation without a build system.
+window.gummy=Object.freeze({get stats(){return{bears:bears.length,nodes:N,vertices:pos.count,triangles:geometry.index.count/3,fps,simTime,impacts,maxPenetration,held:grab?.b.id??null,finite:bears.every(b=>b.p.every(p=>Number.isFinite(p.x+p.y+p.z))),stretch:Math.max(...bears.map(b=>b.stretch)),centers:bears.map(b=>({id:b.id,x:b.p[1].x,y:b.p[1].y,z:b.p[1].z}))};},measure(id){const b=bears.find(b=>b.id===id);if(!b)return null;return{height:Math.max(...b.p.map(p=>p.y))-Math.min(...b.p.map(p=>p.y)),width:Math.max(...b.p.map(p=>p.x))-Math.min(...b.p.map(p=>p.x)),neck:b.p[2].distanceTo(b.p[4]),volume:det(b.cluster[0].a)/(b.scale**3)};},project(id=0,node=4){const b=bears.find(b=>b.id===id);if(!b)return null;const v=b.p[node].clone().project(camera);return{x:(v.x+1)*innerWidth/2,y:(1-v.y)*innerHeight/2};}});
+}
+</script>
+</body>
+</html>
