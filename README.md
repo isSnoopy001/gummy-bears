@@ -8,6 +8,8 @@
 
 ## 体验
 
+[**打开在线演示 →**](https://issnoopy001.github.io/gummy-bears/)
+
 下载并用现代浏览器打开 **[index.html](index.html)**，即可开始，无需安装或构建。首次加载需要联网获取 CDN 上的 three.js。
 
 | 操作 | 效果 |
